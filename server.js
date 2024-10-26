@@ -27,14 +27,14 @@ app.engine('.hbs', engine({
     layoutDir: path.join(__dirname, 'views/layouts'),
     defaultLayout: 'mainLayout.hbs',
 }))
+
 app.set('view engine', '.hbs')
 
 //app.use(express.static(path.join(__dirname, 'assets')))
 //console.log(path.join(__dirname, '/assets'))
 
 //habilitar coneão com BD e o servidor da aplicação
-connectDb()
-.then(data => {
+connectDb().then(data => {
     console.log('>> Banco de dados conectado com sucesso.')
     app.listen('8000', ()=> {
         console.log('>> Servidor está em execução na porta 8000.')
@@ -45,5 +45,5 @@ connectDb()
 .catch(err => console.log('>> Não foi possível conecta ao Bd" \n', err))
 
 app.get('/', (req, res) => {
-    res.render('books/')
+    res.redirect('/books')
 })

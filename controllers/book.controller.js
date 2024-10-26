@@ -37,10 +37,18 @@ router.post('/addOrEdit', (req, res) => {
     .catch(err => console.log('erro durante a atualização de dados: \n', err))
 })
 
+//editar
+router.get('/addOrEdit/:id', (req, res) => {
+    Book.findById(req.params.id).lean()
+    .then( data => res.render('books/addOrEdit', { book: data }))
+    .catch(err =>
+        console.log('Erro ao recuperar dados do id especificado', err))
+})
+
 //rota delete
-router.post('/delete/:id', (req, res) => {
+router.get('/delete/:id', (req, res) => {
     Book.findByIdAndDelete(req.params.id)
-    .then(data => res.redirect('/books'))
+    .then(data => res.render('books/list', { delete: true}))
     .catch(err => console.log('erro ao remover o arquivo:\n', err))
 }) 
 
