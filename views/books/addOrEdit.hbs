@@ -1,0 +1,32 @@
+<form action="/books/addOrEdit" method="post">
+    <input type="hidden" name="_id" value="{{book._id}}">
+    <div class="form.floating mb-3">
+        <input type="title" class="form-control" placeholder="Titulo do livro" required value="{{book.title}}">
+        <label> Titulo do Livro</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="title" class="form-control" placeholder="Autor do livro" required value="{{book.author}}">
+    </div>
+    <label> Nome do Autor</label>
+    <div class="form-floating mb-3">
+        <input type="number" name="publishedYear" class="form-control" >
+    </div>
+    <div class="row mb-3">
+        <div class="col">
+            <div class="form-floating mb-3">
+                <input type="number" name="publishedYear" class="form-control" placeholder="Ano" required min="0001" value="{{book.publishedYear}}">
+                <label>Ano</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating mb-3">
+                <input type="number" name="price" class="form-control" placeholder="Valor" required min="1" value="{{book.price}}">
+                <label>Preço do Livro</label>
+            </div>
+        </div>
+    </div>
+    <div class=" float-end">
+        <a href="/books" class="btn btn-outline-secondary">☰ View All</a>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>
