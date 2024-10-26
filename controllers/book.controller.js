@@ -23,6 +23,7 @@ router.post('/addOrEdit', (req, res) => {
     const book = {
         title: req.body.title,
         author: req.body.author, 
+        publisher: req.body.publisher, 
         publishedYear: req.body.publishedYear,
         price: req.body.price,
     }
