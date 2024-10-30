@@ -49,7 +49,7 @@ router.get('/addOrEdit/:id', (req, res) => {
 //rota delete
 router.get('/delete/:id', (req, res) => {
     Book.findByIdAndDelete(req.params.id)
-    .then(data => res.render('books/list', { delete: true}))
+    .then(data => res.redirect('/books'))
     .catch(err => console.log('erro ao remover o arquivo:\n', err))
 }) 
 
